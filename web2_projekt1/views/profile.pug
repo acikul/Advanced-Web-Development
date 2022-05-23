@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  .w3-container
+      h4 User info:
+      img(src=user.picture)
+      pre
+       code #{JSON.stringify(user)}

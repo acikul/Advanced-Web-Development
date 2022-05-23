@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset='UTF-8')
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', crossorigin='anonymous')
+    link(rel='shortcut icon', type='image/x-icon', href='/assets/favicon.ico')
+    link(rel="manifest", href="./manifest.json")
+
+  body(onload='loadGeocaches()')
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      .container-fluid
+        .navbar-brand Geocache
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+          ul.navbar-nav.me-auto.mb-2.mb-lg-0
+            li.nav-item
+              a.nav-link(href='/') Home
+            li.nav-item
+              a.nav-link(href='/add') Add a geocache
+
+    block content
+      .w3-container
+        br
+        h1 5th project for Advanced Web course
+        br
+        div Geocaching is an outdoor recreational activity, in which participants use a GPS-enabled device and other navigational techniques to hide and seek containers, called "geocaches" or "caches", at specific locations marked by coordinates all over the world.
+        br
+        button#btnEnableNotifications Subscribe to notifications about new geocaches
+        br
+        br
+        #geos
+        
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", crossorigin='anonymous')
+        script(src='js/index.js')
+        script(src="js/push.js") 
+        script.
+          navigator.serviceWorker
+          .register("./sw.js", {type: 'module'})
+          .then((reg) => console.log("SW registered! Reg info: ", reg))
+          .catch((err) =>
+          console.error("Error registering service worker: ", err)
+          );

@@ -1,0 +1,22 @@
+extends layout
+
+block content 
+    .w3-container 
+        if users
+            h2 Welcome, admin!
+            h4 All users:
+            div 
+
+            table.w3-table.w3-striped
+                    th ID
+                    th Name 
+                    th Email 
+                    th Password
+                    each user in users 
+                        tr
+                            td= user.id
+                            td= user.name 
+                            td= user.email
+                            td= user.password
+        else 
+            h3 Status: #{status} Unauthorized

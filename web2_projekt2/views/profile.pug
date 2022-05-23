@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .w3-container
+      
+      if user 
+        h2 User info: 
+        div  
+
+        table.w3-table.w3-striped 
+          tr 
+            th ID 
+            td= user.id 
+          tr 
+            th Name 
+            td= user.name 
+          tr 
+            th Email 
+            td= user.email 
+          tr 
+            th Password 
+            td= user.password  
+      else 
+        h3 Status: #{status} Unauthorized

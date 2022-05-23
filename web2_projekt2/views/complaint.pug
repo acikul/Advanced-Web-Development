@@ -1,0 +1,17 @@
+extends layout
+
+block content 
+    .w3-container
+        h2 Upload a complaint file:
+        form(encType="multipart/form-data" method="post" action="/complaint")
+            input(type="file" name="complaint" class="file-input" id="inputfile")
+            div
+            br
+            input(type="submit" value="Upload").w3-button.w3-round-large.w3-green
+        
+        if message
+            p.w3-pale-red= message
+
+        if cmplntname
+            div Complaint name: #{cmplntname}
+            div Complaint text: #{cmplnttxt}

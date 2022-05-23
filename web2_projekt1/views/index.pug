@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  .w3-container
+    if !locals.user
+      h4 You are not logged in! Please #[a(href="/login") Log In] to continue.
+    else
+      h4 Hello, #{user.nickname}!
+      h5(id='coors') Coordinates: 
+      button(type='button' onclick='myLocator()') Locate me
+      button(type='button' onclick='getLast5Users()') Refresh last 5 users
+      div(id='map')
+      script(src='js/karta.js')

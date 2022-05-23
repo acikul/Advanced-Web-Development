@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .w3-container
+    br 
+    h1 Add a new geocache at your current location
+    button(type='button' onclick='myLocator()') Locate me
+    br
+    div Fill coordinates with the button above
+    br
+    form#forma(name='forma') 
+      input(type='number', id='lat', name='lat', placeholder='Latitude', disabled)
+      br
+      input(type='number', id='long', name='long', placeholder='Longitude', disabled)
+      br
+      input(type='text', id='desc', name='desc', placeholder='Description')
+      br
+      br
+      button(type="submit") Add geocache
+
+    script(src='js/add.js', type='module')
+    script(src='js/geo.js')

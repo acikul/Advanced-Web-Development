@@ -1,0 +1,29 @@
+extends layout
+
+block content 
+    .w3-container 
+        h2 Search users by name 
+        form(action="/usersearch" method="POST")
+            p Name: 
+            input(type="text" name="name" value="" placeholder="")
+            input(type="submit")
+        div
+        br
+
+        if !users
+            div Search results will be displayed here.
+        else if users.length==0
+            div No matches :/
+        
+        else
+            //div #{JSON.stringify(users)}
+
+            table.w3-table.w3-striped
+                th Name 
+                th Email 
+                //th Password
+                each user in users 
+                    tr
+                        td= user.name 
+                        td= user.email
+                        //td= user.password

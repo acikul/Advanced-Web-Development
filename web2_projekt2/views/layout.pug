@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+
+  body
+    nav.w3-bar.w3-border.w3-light-grey( role="navigation" )
+      .w3-bar-item.w3-text-grey Web2-projekt2
+      a(href="/").w3-bar-item.w3-button Home
+      a(href="/usersearch").w3-bar-item.w3-button SQL Injection
+      a(href="/users/2").w3-bar-item.w3-button Broken Access
+      a(href="/complaint").w3-bar-item.w3-button XXE
+
+      if securitySetting == 0
+        - var lvl = "low"
+      else 
+        - var lvl = "high"
+
+      a(href="/changesecurity").w3-bar-item.w3-button.w3-right Security: #{lvl}
+
+    block content
